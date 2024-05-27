@@ -1,0 +1,136 @@
+10:PrimaryExp -> 9:10
+11:UnaryExp -> 10:PrimaryExp
+12:MulExp -> 11:UnaryExp
+14:AddExp -> 12:MulExp
+16:ArrayIndex -> 8:\[ 14:AddExp 13:\]
+17:ConstArrayIndex -> 16:ArrayIndex
+18:VarDecl -> 6:int 7:b 17:ConstArrayIndex
+21:SeqVarDecl -> 19:a 20:\;
+22:Decl -> 18:VarDecl 15:\, 21:SeqVarDecl
+26:PrimaryExp -> 25:2
+27:UnaryExp -> 26:PrimaryExp
+28:MulExp -> 27:UnaryExp
+30:AddExp -> 28:MulExp
+32:ArrayIndex -> 24:\[ 30:AddExp 29:\]
+33:LVal -> 23:b 32:ArrayIndex
+35:PrimaryExp -> 34:010
+36:UnaryExp -> 35:PrimaryExp
+37:MulExp -> 36:UnaryExp
+39:AddExp -> 37:MulExp
+40:ConstArrayIndex -> 31:\= 39:AddExp
+41:Stmt -> 33:LVal 40:ConstArrayIndex 38:\;
+46:PrimaryExp -> 45:1
+47:UnaryExp -> 46:PrimaryExp
+48:MulExp -> 47:UnaryExp
+50:AddExp -> 48:MulExp
+52:PrimaryExp -> 51:2
+53:UnaryExp -> 52:PrimaryExp
+54:MulExp -> 53:UnaryExp
+56:AddExp -> 50:AddExp 49:\+ 54:MulExp
+58:PrimaryExp -> 57:3
+59:UnaryExp -> 58:PrimaryExp
+60:MulExp -> 59:UnaryExp
+62:AddExp -> 56:AddExp 55:\+ 60:MulExp
+64:PrimaryExp -> 63:4
+65:UnaryExp -> 64:PrimaryExp
+66:MulExp -> 65:UnaryExp
+68:AddExp -> 62:AddExp 61:\+ 66:MulExp
+70:PrimaryExp -> 69:5
+71:UnaryExp -> 70:PrimaryExp
+72:MulExp -> 71:UnaryExp
+74:AddExp -> 68:AddExp 67:\+ 72:MulExp
+75:ConstArrayIndex -> 44:\= 74:AddExp
+76:VarDecl -> 42:int 43:test 75:ConstArrayIndex
+77:Decl -> 76:VarDecl 73:\;
+82:PrimaryExp -> 81:0xabcde
+83:UnaryExp -> 82:PrimaryExp
+84:MulExp -> 83:UnaryExp
+86:AddExp -> 84:MulExp
+87:ConstArrayIndex -> 80:\= 86:AddExp
+88:VarDecl -> 78:int 79:test 87:ConstArrayIndex
+89:Decl -> 88:VarDecl 85:\;
+92:LVal -> 90:a
+96:PrimaryExp -> 95:2
+97:UnaryExp -> 96:PrimaryExp
+98:MulExp -> 97:UnaryExp
+100:AddExp -> 98:MulExp
+102:ArrayIndex -> 94:\[ 100:AddExp 99:\]
+103:LVal -> 93:b 102:ArrayIndex
+104:PrimaryExp -> 103:LVal
+105:UnaryExp -> 104:PrimaryExp
+106:MulExp -> 105:UnaryExp
+107:AddExp -> 106:MulExp
+108:ConstArrayIndex -> 91:\= 107:AddExp
+109:Stmt -> 92:LVal 108:ConstArrayIndex 101:\;
+114:LVal -> 112:a
+115:PrimaryExp -> 114:LVal
+116:UnaryExp -> 115:PrimaryExp
+117:MulExp -> 116:UnaryExp
+118:AddExp -> 117:MulExp
+119:RelExp -> 118:AddExp
+120:CompExp -> 119:RelExp
+122:PrimaryExp -> 121:0
+123:UnaryExp -> 122:PrimaryExp
+124:MulExp -> 123:UnaryExp
+126:AddExp -> 124:MulExp
+127:RelExp -> 126:AddExp
+128:CompExp -> 120:CompExp 113:\> 127:RelExp
+129:LAndExp -> 128:CompExp
+130:LOrExp -> 129:LAndExp
+131:Cond -> 130:LOrExp
+135:LVal -> 133:a
+138:LVal -> 136:a
+139:PrimaryExp -> 138:LVal
+140:UnaryExp -> 139:PrimaryExp
+141:MulExp -> 140:UnaryExp
+142:AddExp -> 141:MulExp
+144:PrimaryExp -> 143:1
+145:UnaryExp -> 144:PrimaryExp
+146:MulExp -> 145:UnaryExp
+148:AddExp -> 142:AddExp 137:\- 146:MulExp
+149:ConstArrayIndex -> 134:\= 148:AddExp
+150:Stmt -> 135:LVal 149:ConstArrayIndex 147:\;
+155:LVal -> 153:a
+156:PrimaryExp -> 155:LVal
+157:UnaryExp -> 156:PrimaryExp
+158:MulExp -> 157:UnaryExp
+159:AddExp -> 158:MulExp
+160:RelExp -> 159:AddExp
+161:CompExp -> 160:RelExp
+163:PrimaryExp -> 162:5
+164:UnaryExp -> 163:PrimaryExp
+165:MulExp -> 164:UnaryExp
+167:AddExp -> 165:MulExp
+168:RelExp -> 167:AddExp
+169:CompExp -> 161:CompExp 154:\=\= 168:RelExp
+170:LAndExp -> 169:CompExp
+171:LOrExp -> 170:LAndExp
+172:Cond -> 171:LOrExp
+175:Stmt -> 173:break 174:\;
+176:StmtOrBlock -> 175:Stmt
+177:IfBlock -> 151:if 152:\( 172:Cond 166:\) 176:StmtOrBlock
+179:Stmt -> 177:IfBlock
+181:Stmt -> 178:continue 180:\;
+183:BlockItem -> 181:Stmt
+184:BlockItem -> 179:Stmt 183:BlockItem
+185:BlockItem -> 150:Stmt 184:BlockItem
+186:Block -> 132:\{ 185:BlockItem 182:\}
+187:StmtOrBlock -> 186:Block
+188:Stmt -> 110:while 111:\( 131:Cond 125:\) 187:StmtOrBlock
+192:LVal -> 190:a
+193:PrimaryExp -> 192:LVal
+194:UnaryExp -> 193:PrimaryExp
+195:MulExp -> 194:UnaryExp
+196:AddExp -> 195:MulExp
+197:Stmt -> 189:return 196:AddExp 191:\;
+199:BlockItem -> 197:Stmt
+200:BlockItem -> 188:Stmt 199:BlockItem
+201:BlockItem -> 109:Stmt 200:BlockItem
+202:BlockItem -> 89:Decl 201:BlockItem
+203:BlockItem -> 77:Decl 202:BlockItem
+204:BlockItem -> 41:Stmt 203:BlockItem
+205:BlockItem -> 22:Decl 204:BlockItem
+206:Block -> 5:\{ 205:BlockItem 198:\}
+207:FuncDef -> 1:int 2:main 3:\( 4:\) 206:Block
+208:OtherCompUnit -> 207:FuncDef
+209:CompUnit -> 208:OtherCompUnit

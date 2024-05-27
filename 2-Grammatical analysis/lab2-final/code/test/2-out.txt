@@ -1,0 +1,68 @@
+10:LVal -> 8:a
+11:PrimaryExp -> 10:LVal
+12:UnaryExp -> 11:PrimaryExp
+13:MulExp -> 12:UnaryExp
+14:AddExp -> 13:MulExp
+15:RelExp -> 14:AddExp
+16:CompExp -> 15:RelExp
+19:LVal -> 17:b
+20:PrimaryExp -> 19:LVal
+21:UnaryExp -> 20:PrimaryExp
+22:MulExp -> 21:UnaryExp
+23:AddExp -> 22:MulExp
+24:RelExp -> 23:AddExp
+25:CompExp -> 16:CompExp 9:\> 24:RelExp
+26:LAndExp -> 25:CompExp
+27:LOrExp -> 26:LAndExp
+28:Cond -> 27:LOrExp
+33:LVal -> 31:c
+34:PrimaryExp -> 33:LVal
+35:UnaryExp -> 34:PrimaryExp
+36:MulExp -> 35:UnaryExp
+37:AddExp -> 36:MulExp
+38:RelExp -> 37:AddExp
+39:CompExp -> 38:RelExp
+42:LVal -> 40:d
+43:PrimaryExp -> 42:LVal
+44:UnaryExp -> 43:PrimaryExp
+45:MulExp -> 44:UnaryExp
+46:AddExp -> 45:MulExp
+47:RelExp -> 46:AddExp
+48:CompExp -> 39:CompExp 32:\> 47:RelExp
+49:LAndExp -> 48:CompExp
+50:LOrExp -> 49:LAndExp
+51:Cond -> 50:LOrExp
+54:LVal -> 52:a
+57:LVal -> 55:b
+58:PrimaryExp -> 57:LVal
+59:UnaryExp -> 58:PrimaryExp
+60:MulExp -> 59:UnaryExp
+61:AddExp -> 60:MulExp
+62:ConstArrayIndex -> 53:\= 61:AddExp
+63:Stmt -> 54:LVal 62:ConstArrayIndex 56:\;
+64:StmtOrBlock -> 63:Stmt
+65:IfBlock -> 29:if 30:\( 51:Cond 41:\) 64:StmtOrBlock
+69:LVal -> 67:b
+72:LVal -> 70:a
+73:PrimaryExp -> 72:LVal
+74:UnaryExp -> 73:PrimaryExp
+75:MulExp -> 74:UnaryExp
+76:AddExp -> 75:MulExp
+77:ConstArrayIndex -> 68:\= 76:AddExp
+78:Stmt -> 69:LVal 77:ConstArrayIndex 71:\;
+79:StmtOrBlock -> 78:Stmt
+80:Stmt -> 65:IfBlock 66:else 79:StmtOrBlock
+81:StmtOrBlock -> 80:Stmt
+82:IfBlock -> 6:if 7:\( 28:Cond 18:\) 81:StmtOrBlock
+84:Stmt -> 82:IfBlock
+86:PrimaryExp -> 85:0
+87:UnaryExp -> 86:PrimaryExp
+88:MulExp -> 87:UnaryExp
+90:AddExp -> 88:MulExp
+91:Stmt -> 83:return 90:AddExp 89:\;
+93:BlockItem -> 91:Stmt
+94:BlockItem -> 84:Stmt 93:BlockItem
+95:Block -> 5:\{ 94:BlockItem 92:\}
+96:FuncDef -> 1:int 2:main 3:\( 4:\) 95:Block
+97:OtherCompUnit -> 96:FuncDef
+98:CompUnit -> 97:OtherCompUnit

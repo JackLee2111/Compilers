@@ -1,0 +1,311 @@
+6:PrimaryExp -> 5:10
+7:UnaryExp -> 6:PrimaryExp
+8:MulExp -> 7:UnaryExp
+10:AddExp -> 8:MulExp
+11:ConstArrayIndex -> 4:\= 10:AddExp
+12:VarDecl -> 1:const 2:int 3:pad 11:ConstArrayIndex
+16:PrimaryExp -> 15:20
+17:UnaryExp -> 16:PrimaryExp
+18:MulExp -> 17:UnaryExp
+20:AddExp -> 18:MulExp
+21:ConstArrayIndex -> 14:\= 20:AddExp
+25:PrimaryExp -> 24:40
+26:UnaryExp -> 25:PrimaryExp
+27:MulExp -> 26:UnaryExp
+29:AddExp -> 27:MulExp
+30:ConstArrayIndex -> 23:\= 29:AddExp
+31:SeqVarDecl -> 22:reowi 30:ConstArrayIndex 28:\;
+32:SeqVarDecl -> 13:rew 21:ConstArrayIndex 19:\, 31:SeqVarDecl
+33:Decl -> 12:VarDecl 9:\, 32:SeqVarDecl
+34:OtherCompUnit -> 33:Decl
+35:CompUnit -> 34:OtherCompUnit
+42:FuncFParam -> 39:int 40:a
+48:ArrayIndex -> 45:\[ 46:\]
+49:ConstArrayIndex -> 48:ArrayIndex
+50:FuncFParam -> 43:int 44:c 49:ConstArrayIndex
+58:LVal -> 56:h
+59:PrimaryExp -> 58:LVal
+60:UnaryExp -> 59:PrimaryExp
+61:MulExp -> 60:UnaryExp
+62:AddExp -> 61:MulExp
+65:LVal -> 63:e
+66:PrimaryExp -> 65:LVal
+67:UnaryExp -> 66:PrimaryExp
+68:MulExp -> 67:UnaryExp
+69:AddExp -> 62:AddExp 57:\+ 68:MulExp
+71:ArrayIndex -> 55:\[ 69:AddExp 64:\]
+72:ArrayIndex -> 53:\[ 54:\] 71:ArrayIndex
+73:ConstArrayIndex -> 72:ArrayIndex
+74:FuncFParam -> 51:int 52:d 73:ConstArrayIndex
+75:FuncFParams -> 74:FuncFParam
+76:FuncFParams -> 50:FuncFParam 47:\, 75:FuncFParams
+77:FuncFParams -> 42:FuncFParam 41:\, 76:FuncFParams
+83:PrimaryExp -> 82:10
+84:UnaryExp -> 83:PrimaryExp
+85:MulExp -> 84:UnaryExp
+87:AddExp -> 85:MulExp
+88:ConstArrayIndex -> 81:\= 87:AddExp
+89:VarDecl -> 79:int 80:a 88:ConstArrayIndex
+96:SeqVarDecl -> 94:j 95:\;
+97:SeqVarDecl -> 92:h 93:\, 96:SeqVarDecl
+98:SeqVarDecl -> 90:g 91:\, 97:SeqVarDecl
+99:Decl -> 89:VarDecl 86:\, 98:SeqVarDecl
+104:LVal -> 102:a
+105:PrimaryExp -> 104:LVal
+106:UnaryExp -> 105:PrimaryExp
+107:MulExp -> 106:UnaryExp
+108:AddExp -> 107:MulExp
+109:RelExp -> 108:AddExp
+110:CompExp -> 109:RelExp
+112:PrimaryExp -> 111:10
+113:UnaryExp -> 112:PrimaryExp
+114:MulExp -> 113:UnaryExp
+116:AddExp -> 114:MulExp
+117:RelExp -> 116:AddExp
+118:CompExp -> 110:CompExp 103:\<\= 117:RelExp
+119:LAndExp -> 118:CompExp
+120:LOrExp -> 119:LAndExp
+123:LVal -> 121:b
+124:PrimaryExp -> 123:LVal
+125:UnaryExp -> 124:PrimaryExp
+126:MulExp -> 125:UnaryExp
+127:AddExp -> 126:MulExp
+128:RelExp -> 127:AddExp
+129:CompExp -> 128:RelExp
+131:PrimaryExp -> 130:2
+132:UnaryExp -> 131:PrimaryExp
+133:MulExp -> 132:UnaryExp
+135:AddExp -> 133:MulExp
+136:RelExp -> 135:AddExp
+137:CompExp -> 129:CompExp 122:\> 136:RelExp
+138:LAndExp -> 137:CompExp
+141:LVal -> 139:a
+142:PrimaryExp -> 141:LVal
+143:UnaryExp -> 142:PrimaryExp
+144:MulExp -> 143:UnaryExp
+145:AddExp -> 144:MulExp
+148:LVal -> 146:b
+149:PrimaryExp -> 148:LVal
+150:UnaryExp -> 149:PrimaryExp
+151:MulExp -> 150:UnaryExp
+152:AddExp -> 145:AddExp 140:\+ 151:MulExp
+153:RelExp -> 152:AddExp
+154:CompExp -> 153:RelExp
+157:LVal -> 155:c
+158:PrimaryExp -> 157:LVal
+159:UnaryExp -> 158:PrimaryExp
+160:MulExp -> 159:UnaryExp
+161:AddExp -> 160:MulExp
+162:RelExp -> 161:AddExp
+163:CompExp -> 154:CompExp 147:\< 162:RelExp
+164:LAndExp -> 138:LAndExp 134:\&\& 163:CompExp
+165:LOrExp -> 120:LOrExp 115:\|\| 164:LAndExp
+166:Cond -> 165:LOrExp
+169:LVal -> 167:a
+172:LVal -> 170:a
+173:PrimaryExp -> 172:LVal
+174:UnaryExp -> 173:PrimaryExp
+175:MulExp -> 174:UnaryExp
+176:AddExp -> 175:MulExp
+178:PrimaryExp -> 177:1
+179:UnaryExp -> 178:PrimaryExp
+180:MulExp -> 179:UnaryExp
+182:AddExp -> 176:AddExp 171:\+ 180:MulExp
+183:ConstArrayIndex -> 168:\= 182:AddExp
+184:Stmt -> 169:LVal 183:ConstArrayIndex 181:\;
+185:StmtOrBlock -> 184:Stmt
+186:Stmt -> 100:while 101:\( 166:Cond 156:\) 185:StmtOrBlock
+191:LVal -> 189:a
+192:PrimaryExp -> 191:LVal
+193:UnaryExp -> 192:PrimaryExp
+194:MulExp -> 193:UnaryExp
+195:AddExp -> 194:MulExp
+196:RelExp -> 195:AddExp
+197:CompExp -> 196:RelExp
+198:LAndExp -> 197:CompExp
+201:LVal -> 199:b
+202:PrimaryExp -> 201:LVal
+203:UnaryExp -> 202:PrimaryExp
+204:MulExp -> 203:UnaryExp
+205:AddExp -> 204:MulExp
+206:RelExp -> 205:AddExp
+207:CompExp -> 206:RelExp
+210:LVal -> 208:c
+211:PrimaryExp -> 210:LVal
+212:UnaryExp -> 211:PrimaryExp
+213:MulExp -> 212:UnaryExp
+214:AddExp -> 213:MulExp
+215:RelExp -> 214:AddExp
+216:CompExp -> 207:CompExp 200:\!\= 215:RelExp
+217:LAndExp -> 198:LAndExp 190:\&\& 216:CompExp
+218:LOrExp -> 217:LAndExp
+219:Cond -> 218:LOrExp
+223:LVal -> 221:a
+224:PrimaryExp -> 223:LVal
+225:UnaryExp -> 224:PrimaryExp
+226:MulExp -> 225:UnaryExp
+227:AddExp -> 226:MulExp
+230:LVal -> 228:b
+231:PrimaryExp -> 230:LVal
+232:UnaryExp -> 231:PrimaryExp
+233:MulExp -> 232:UnaryExp
+236:LVal -> 234:c
+237:PrimaryExp -> 236:LVal
+238:UnaryExp -> 237:PrimaryExp
+239:MulExp -> 233:MulExp 229:\* 238:UnaryExp
+240:AddExp -> 227:AddExp 222:\+ 239:MulExp
+241:Stmt -> 220:return 240:AddExp 235:\;
+242:StmtOrBlock -> 241:Stmt
+243:IfBlock -> 187:if 188:\( 219:Cond 209:\) 242:StmtOrBlock
+251:PrimaryExp -> 250:100
+252:UnaryExp -> 251:PrimaryExp
+253:MulExp -> 252:UnaryExp
+255:AddExp -> 253:MulExp
+256:ConstArrayIndex -> 249:\= 255:AddExp
+257:VarDecl -> 246:const 247:int 248:b 256:ConstArrayIndex
+258:Decl -> 257:VarDecl 254:\;
+261:LVal -> 259:a
+262:PrimaryExp -> 261:LVal
+263:UnaryExp -> 262:PrimaryExp
+264:MulExp -> 263:UnaryExp
+265:AddExp -> 264:MulExp
+268:LVal -> 266:b
+269:PrimaryExp -> 268:LVal
+270:UnaryExp -> 269:PrimaryExp
+271:MulExp -> 270:UnaryExp
+272:AddExp -> 265:AddExp 260:\+ 271:MulExp
+273:Stmt -> 272:AddExp 267:\;
+275:BlockItem -> 273:Stmt
+276:BlockItem -> 258:Decl 275:BlockItem
+277:Block -> 245:\{ 276:BlockItem 274:\}
+278:StmtOrBlock -> 277:Block
+279:Stmt -> 243:IfBlock 244:else 278:StmtOrBlock
+283:UnaryExp -> 280:func 281:\( 282:)
+284:MulExp -> 283:UnaryExp
+286:AddExp -> 284:MulExp
+287:Stmt -> 286:AddExp 285:\;
+292:LVal -> 290:a
+293:PrimaryExp -> 292:LVal
+294:UnaryExp -> 293:PrimaryExp
+295:MulExp -> 294:UnaryExp
+296:AddExp -> 295:MulExp
+299:LVal -> 297:b
+300:PrimaryExp -> 299:LVal
+301:UnaryExp -> 300:PrimaryExp
+302:MulExp -> 301:UnaryExp
+303:AddExp -> 302:MulExp
+305:PrimaryExp -> 304:128
+306:UnaryExp -> 305:PrimaryExp
+307:MulExp -> 306:UnaryExp
+311:LVal -> 309:pp
+312:PrimaryExp -> 311:LVal
+313:UnaryExp -> 312:PrimaryExp
+314:MulExp -> 307:MulExp 308:\* 313:UnaryExp
+315:AddExp -> 303:AddExp 298:\+ 314:MulExp
+317:PrimaryExp -> 316:2
+318:UnaryExp -> 317:PrimaryExp
+319:MulExp -> 318:UnaryExp
+321:AddExp -> 315:AddExp 310:\+ 319:MulExp
+324:LVal -> 322:c
+325:PrimaryExp -> 324:LVal
+326:UnaryExp -> 325:PrimaryExp
+327:MulExp -> 326:UnaryExp
+328:AddExp -> 327:MulExp
+331:LVal -> 329:d
+332:PrimaryExp -> 331:LVal
+333:UnaryExp -> 332:PrimaryExp
+334:MulExp -> 333:UnaryExp
+335:AddExp -> 334:MulExp
+338:LVal -> 336:e
+339:PrimaryExp -> 338:LVal
+340:UnaryExp -> 339:PrimaryExp
+341:MulExp -> 340:UnaryExp
+342:AddExp -> 341:MulExp
+343:FuncRParams -> 342:AddExp
+344:FuncRParams -> 335:AddExp 330:\, 343:FuncRParams
+345:FuncRParams -> 328:AddExp 323:\, 344:FuncRParams
+346:FuncRParams -> 321:AddExp 320:\, 345:FuncRParams
+347:FuncRParams -> 296:AddExp 291:\, 346:FuncRParams
+348:UnaryExp -> 288:func 289:\( 347:FuncRParams 337:\)
+349:MulExp -> 348:UnaryExp
+351:AddExp -> 349:MulExp
+352:Stmt -> 351:AddExp 350:\;
+355:Stmt -> 353:return 354:\;
+357:BlockItem -> 355:Stmt
+358:BlockItem -> 352:Stmt 357:BlockItem
+359:BlockItem -> 287:Stmt 358:BlockItem
+360:BlockItem -> 279:Stmt 359:BlockItem
+361:BlockItem -> 186:Stmt 360:BlockItem
+362:BlockItem -> 99:Decl 361:BlockItem
+363:Block -> 78:\{ 362:BlockItem 356:\}
+364:FuncDef -> 36:int 37:func 38:\( 77:FuncFParams 70:\) 363:Block
+365:OtherCompUnit -> 364:FuncDef
+366:CompUnit -> 35:CompUnit 365:OtherCompUnit
+376:LVal -> 374:a
+377:PrimaryExp -> 376:LVal
+378:UnaryExp -> 377:PrimaryExp
+379:MulExp -> 378:UnaryExp
+380:AddExp -> 379:MulExp
+381:RelExp -> 380:AddExp
+382:CompExp -> 381:RelExp
+385:LVal -> 383:b
+386:PrimaryExp -> 385:LVal
+387:UnaryExp -> 386:PrimaryExp
+388:MulExp -> 387:UnaryExp
+389:AddExp -> 388:MulExp
+390:RelExp -> 389:AddExp
+391:CompExp -> 382:CompExp 375:\> 390:RelExp
+392:LAndExp -> 391:CompExp
+393:LOrExp -> 392:LAndExp
+394:Cond -> 393:LOrExp
+399:LVal -> 397:c
+400:PrimaryExp -> 399:LVal
+401:UnaryExp -> 400:PrimaryExp
+402:MulExp -> 401:UnaryExp
+403:AddExp -> 402:MulExp
+404:RelExp -> 403:AddExp
+405:CompExp -> 404:RelExp
+408:LVal -> 406:d
+409:PrimaryExp -> 408:LVal
+410:UnaryExp -> 409:PrimaryExp
+411:MulExp -> 410:UnaryExp
+412:AddExp -> 411:MulExp
+413:RelExp -> 412:AddExp
+414:CompExp -> 405:CompExp 398:\> 413:RelExp
+415:LAndExp -> 414:CompExp
+416:LOrExp -> 415:LAndExp
+417:Cond -> 416:LOrExp
+420:LVal -> 418:a
+423:LVal -> 421:b
+424:PrimaryExp -> 423:LVal
+425:UnaryExp -> 424:PrimaryExp
+426:MulExp -> 425:UnaryExp
+427:AddExp -> 426:MulExp
+428:ConstArrayIndex -> 419:\= 427:AddExp
+429:Stmt -> 420:LVal 428:ConstArrayIndex 422:\;
+430:StmtOrBlock -> 429:Stmt
+431:IfBlock -> 395:if 396:\( 417:Cond 407:\) 430:StmtOrBlock
+435:LVal -> 433:b
+438:LVal -> 436:a
+439:PrimaryExp -> 438:LVal
+440:UnaryExp -> 439:PrimaryExp
+441:MulExp -> 440:UnaryExp
+442:AddExp -> 441:MulExp
+443:ConstArrayIndex -> 434:\= 442:AddExp
+444:Stmt -> 435:LVal 443:ConstArrayIndex 437:\;
+445:StmtOrBlock -> 444:Stmt
+446:Stmt -> 431:IfBlock 432:else 445:StmtOrBlock
+447:StmtOrBlock -> 446:Stmt
+448:IfBlock -> 372:if 373:\( 394:Cond 384:\) 447:StmtOrBlock
+450:Stmt -> 448:IfBlock
+452:PrimaryExp -> 451:0
+453:UnaryExp -> 452:PrimaryExp
+454:MulExp -> 453:UnaryExp
+456:AddExp -> 454:MulExp
+457:Stmt -> 449:return 456:AddExp 455:\;
+459:BlockItem -> 457:Stmt
+460:BlockItem -> 450:Stmt 459:BlockItem
+461:Block -> 371:\{ 460:BlockItem 458:\}
+462:FuncDef -> 367:int 368:main 369:\( 370:\) 461:Block
+463:OtherCompUnit -> 462:FuncDef
+464:CompUnit -> 366:CompUnit 463:OtherCompUnit
